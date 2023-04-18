@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيقي</string>
+    <string name="First_name">الاسم</string>
+    <string name="Family_name">اللقب</string>
+    <string name="Age">العمر</string>
+    <string name="Email">الايميل</string>
+    <string name="Password">كلمةالمرور</string>
+    <string name="Address">العنوان</string>
+    <string name="Sign_up">التسجيل</string>
+    <string name="Log_in">تسجيل دخول</string>
+    <string name="start">انطلق</string>
+    <string name="have_one">لدي حساب</string>
+</resources>
