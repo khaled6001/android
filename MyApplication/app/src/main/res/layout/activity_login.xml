@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/login_email"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_marginTop="32dp"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_login_title" />
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/login_password"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_marginTop="7dp"

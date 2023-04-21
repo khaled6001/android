@@ -37,7 +37,6 @@ public class LoginActivityTest {
                 .perform(ViewActions.typeText("password"));
         Espresso.pressBack();
         onView(withId(R.id.login_button)).perform(ViewActions.click());
-// Check if user info is saved to shared preferences
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
