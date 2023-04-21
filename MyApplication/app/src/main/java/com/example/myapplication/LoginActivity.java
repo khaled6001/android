@@ -7,45 +7,31 @@ import android.view.View;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.Response;import com.android.volley.VolleyError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-public class LoginActivity extends Home {
 
-    public class HttpActivity {
-        NetworkService networkService;
-        boolean mBound = false;
-        private ServiceConnection connection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName className,IBinder service) {
-                NetworkService.LocalBinder binder= (NetworkService.LocalBinder) service;
-                networkService = binder.getService();
-                mBound = true;
-            }
-            @Override
-            public void onServiceDisconnected(ComponentName arg0) {
-                mBound = false;
-            }
-        };}
-    @Override
-    protected void onStart(SignUpActivity.HttpActivity connection) {
+import android.content.ServiceConnection;
+
+public class LoginActivity extends HomeActivity {
+
+    protected void onStart(HttpActivity connection) {
         super.onStart();
         Intent intent = new Intent(this, NetworkService.class);
         startService(intent);
         bindService(intent, (ServiceConnection) connection, Context.BIND_AUTO_CREATE);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        emailEditText = findViewById(R.id.email);
-        passwordEditText = findViewById(R.id.password);
+        emailEditText = findViewById(R.id.login_email);
+        passwordEditText = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +42,10 @@ public class LoginActivity extends Home {
             }
         });
     }
-    @Override
-    protected void onStop(SignUpActivity.HttpActivity connection){
+
+
+
+    protected void onStop(HttpActivity connection){
         super.onStop();
         unbindService((ServiceConnection) connection);
         Intent intent = new Intent(this, NetworkService.class);

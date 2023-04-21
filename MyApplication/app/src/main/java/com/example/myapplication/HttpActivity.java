@@ -9,7 +9,7 @@ public class HttpActivity {
     boolean mBound = false;
 
 
-    private ServiceConnection connection = new ServiceConnection() {
+    protected ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className,IBinder service) {
             NetworkService.LocalBinder binder= (NetworkService.LocalBinder) service;

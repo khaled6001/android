@@ -13,28 +13,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
-import android.content.ComponentName;
+
 import android.content.ServiceConnection;
-import android.os.IBinder;
 
-public class SignUpActivity extends Home {
+public class SignUpActivity extends HomeActivity {
 
-    public class HttpActivity {
-        NetworkService networkService;
-        boolean mBound = false;
-        private ServiceConnection connection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName className,IBinder service) {
-                NetworkService.LocalBinder binder= (NetworkService.LocalBinder) service;
-                networkService = binder.getService();
-                mBound = true;
-            }
-            @Override
-            public void onServiceDisconnected(ComponentName arg0) {
-                mBound = false;
-            }
-        };}
-    @Override
     protected void onStart(HttpActivity connection) {
         super.onStart();
         Intent intent = new Intent(this, NetworkService.class);
@@ -54,6 +37,8 @@ public class SignUpActivity extends Home {
         });
 
         }
+
+
     @Override
     protected void onStop(HttpActivity connection){
         super.onStop();
